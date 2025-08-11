@@ -1,0 +1,7 @@
+
+➜  devenv-singleplay ls -l
+total 8
+-rw-r--r--. 1 root root 175 Aug 11 18:42 ansible.cfg
+drwxr-xr-x. 2 root root  24 Aug 11 18:42 files
+-rw-r--r--. 1 root root  53 Aug 11 18:42 inventory
+drwxr-xr-x. 2 root root  22 Aug 11 18:42 solutions
