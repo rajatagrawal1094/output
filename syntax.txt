@@ -1,0 +1,2 @@
+
+playbook: /workspaces/devenv-singleplay/site.yml
