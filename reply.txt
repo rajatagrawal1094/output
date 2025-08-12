@@ -1,27 +1,27 @@
-➜  devenv-singleplay ansible-navigator replay site-artifact-2025-08-12T17:53:47.676183+00:00.json
+➜  devenv-singleplay ansible-navigator replay site-artifact-2025-08-12T18:08:58.400263+00:00.json 
 
 PLAY [Install and start Apache HTTPD] ******************************************
 
 TASK [Gathering Facts] *********************************************************
-ok: [serverb.lab.example.com]
 ok: [servera.lab.example.com]
+ok: [serverb.lab.example.com]
 
 TASK [Ensure httpd package is present] *****************************************
-ok: [serverb.lab.example.com]
-ok: [servera.lab.example.com]
+changed: [serverb.lab.example.com]
+changed: [servera.lab.example.com]
 
 TASK [Correct index.html is present] *******************************************
-ok: [servera.lab.example.com]
-ok: [serverb.lab.example.com]
+changed: [serverb.lab.example.com]
+changed: [servera.lab.example.com]
 
 TASK [Ensure httpd is started] *************************************************
-ok: [servera.lab.example.com]
-ok: [serverb.lab.example.com]
+changed: [serverb.lab.example.com]
+changed: [servera.lab.example.com]
 
 TASK [Firewall permits access to httpd service] ********************************
-ok: [servera.lab.example.com]
-ok: [serverb.lab.example.com]
+changed: [serverb.lab.example.com]
+changed: [servera.lab.example.com]
 
 PLAY RECAP *********************************************************************
-servera.lab.example.com    : ok=5    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
-serverb.lab.example.com    : ok=5    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+servera.lab.example.com    : ok=5    changed=4    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+serverb.lab.example.com    : ok=5    changed=4    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
