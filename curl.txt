@@ -1,8 +1,0 @@
-➜  devenv-singleplay curl servera.lab.example.com
-Hello, World!
-
-This is a test page by Ansible!#                                                                                                                        
-➜  devenv-singleplay curl serverb.lab.example.com
-Hello, World!
-
-This is a test page by Ansible!#

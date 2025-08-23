@@ -1,0 +1,59 @@
+➜  data-vars ansible-navigator run playbook.yml 
+
+PLAY [Deploy and start cockpit service] ************************************************************************************************************************
+
+TASK [Gathering Facts] *****************************************************************************************************************************************
+ok: [serverb.lab.example.com]
+ok: [serverc.lab.example.com]
+ok: [serverd.lab.example.com]
+ok: [servera.lab.example.com]
+
+TASK [Required packages are installed and up to date] **********************************************************************************************************
+changed: [serverc.lab.example.com]
+changed: [serverb.lab.example.com]
+changed: [servera.lab.example.com]
+changed: [serverd.lab.example.com]
+
+TASK [The cockpit service is started and enabled] **************************************************************************************************************
+changed: [serverc.lab.example.com]
+changed: [serverb.lab.example.com]
+changed: [servera.lab.example.com]
+changed: [serverd.lab.example.com]
+
+TASK [The firewalld service is started and enabled] ************************************************************************************************************
+ok: [serverb.lab.example.com]
+ok: [serverc.lab.example.com]
+ok: [servera.lab.example.com]
+ok: [serverd.lab.example.com]
+
+TASK [The firewall port for cockpit is open] *******************************************************************************************************************
+changed: [serverc.lab.example.com]
+changed: [serverb.lab.example.com]
+changed: [servera.lab.example.com]
+changed: [serverd.lab.example.com]
+
+PLAY [Play 2 - Ensuring that user alice exists with the correct uid] *******************************************************************************************
+
+TASK [Gathering Facts] *****************************************************************************************************************************************
+ok: [serverb.lab.example.com]
+ok: [servera.lab.example.com]
+
+TASK [Ensure alice with 8888 user exists] **********************************************************************************************************************
+changed: [serverb.lab.example.com]
+changed: [servera.lab.example.com]
+
+PLAY [Play 3 - Ensuring that user bob exists with the correct uid] *********************************************************************************************
+
+TASK [Gathering Facts] *****************************************************************************************************************************************
+ok: [serverc.lab.example.com]
+ok: [serverd.lab.example.com]
+
+TASK [Ensure bob with 9999 user exists] ************************************************************************************************************************
+changed: [serverc.lab.example.com]
+changed: [serverd.lab.example.com]
+
+PLAY RECAP *****************************************************************************************************************************************************
+servera.lab.example.com    : ok=7    changed=4    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+serverb.lab.example.com    : ok=7    changed=4    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+serverc.lab.example.com    : ok=7    changed=4    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+serverd.lab.example.com    : ok=7    changed=4    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
