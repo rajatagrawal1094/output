@@ -1,0 +1,67 @@
+➜  data-vars ansible-navigator run playbook.yml --extra-vars "usr=victor uid=11000" 
+
+PLAY [Deploy and start Cockpit service] ************************************************************************************************************************
+
+TASK [Gathering Facts] *****************************************************************************************************************************************
+ok: [servera.lab.example.com]
+ok: [serverb.lab.example.com]
+ok: [serverd.lab.example.com]
+ok: [serverc.lab.example.com]
+
+TASK [Required packages are installed and up to date] **********************************************************************************************************
+ok: [serverd.lab.example.com]
+ok: [servera.lab.example.com]
+ok: [serverb.lab.example.com]
+ok: [serverc.lab.example.com]
+
+TASK [The cockpit.socket is started and enabled] ***************************************************************************************************************
+ok: [serverb.lab.example.com]
+ok: [servera.lab.example.com]
+ok: [serverc.lab.example.com]
+ok: [serverd.lab.example.com]
+
+TASK [The firewalld service is started and enabled] ************************************************************************************************************
+ok: [servera.lab.example.com]
+ok: [serverb.lab.example.com]
+ok: [serverd.lab.example.com]
+ok: [serverc.lab.example.com]
+
+TASK [The firewall port for cockpit is open] *******************************************************************************************************************
+ok: [servera.lab.example.com]
+ok: [serverb.lab.example.com]
+ok: [serverd.lab.example.com]
+ok: [serverc.lab.example.com]
+
+PLAY [Ensure that required users exists] ***********************************************************************************************************************
+
+TASK [Gathering Facts] *****************************************************************************************************************************************
+ok: [servera.lab.example.com]
+ok: [serverb.lab.example.com]
+ok: [serverc.lab.example.com]
+ok: [serverd.lab.example.com]
+
+TASK [Ensure the users with correct uid exists] ****************************************************************************************************************
+changed: [servera.lab.example.com]
+changed: [serverc.lab.example.com]
+changed: [serverd.lab.example.com]
+changed: [serverb.lab.example.com]
+
+TASK [Printing user information] *******************************************************************************************************************************
+ok: [servera.lab.example.com] => {
+    "msg": "Home directory for the user victor with UID 11000 is /home/victor\n"
+}
+ok: [serverb.lab.example.com] => {
+    "msg": "Home directory for the user victor with UID 11000 is /home/victor\n"
+}
+ok: [serverc.lab.example.com] => {
+    "msg": "Home directory for the user victor with UID 11000 is /home/victor\n"
+}
+ok: [serverd.lab.example.com] => {
+    "msg": "Home directory for the user victor with UID 11000 is /home/victor\n"
+}
+
+PLAY RECAP *****************************************************************************************************************************************************
+servera.lab.example.com    : ok=8    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+serverb.lab.example.com    : ok=8    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+serverc.lab.example.com    : ok=8    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+serverd.lab.example.com    : ok=8    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0

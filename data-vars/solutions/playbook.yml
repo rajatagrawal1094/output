@@ -1,0 +1,50 @@
+---
+- name: Deploy and start Cockpit service
+  hosts: allservers
+  become: True
+
+  tasks:
+    - name: Required packages are installed and up to date
+      ansible.builtin.dnf:
+        name:
+          - "{{ server_pkg }}"
+          - "{{ firewall_pkg }}"
+        state: latest
+
+    - name: The {{ server_svc }} is started and enabled
+      ansible.builtin.systemd_service:
+        name: "{{ server_svc }}"
+        state: started
+        enabled: true
+
+    - name: The {{ firewall_svc }} service is started and enabled
+      ansible.builtin.systemd_service:
+        name: "{{ firewall_svc }}"
+        state: started
+        enabled: true
+
+    - name: The firewall port for {{ firewall_rule }} is open
+      ansible.posix.firewalld:
+        service: "{{ firewall_rule }}"
+        permanent: true
+        immediate: true
+        state: enabled
+
+- name: Ensure that required users exists
+  hosts: all
+  become: True
+
+  tasks:
+    - name: Ensure the users with correct uid exists
+      ansible.builtin.user:
+        name: "{{ usr }}"
+        uid: "{{ uid }}"
+        state: present
+      register: output_users
+
+    - name: Printing user information
+      ansible.builtin.debug:
+        msg: >
+          Home directory for the user {{ output_users['name'] }}
+          with UID {{ output_users['uid'] }}
+          is {{ output_users['home'] }}
